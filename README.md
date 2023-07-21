@@ -2,7 +2,7 @@
 
 Video PaaS is a scalable and cost-effective platform that replicates the services used by YouTube and Instagram for video conversion from large sizes to storable formats, helping to reduce storage costs.
 
-![aws-arch](https://github.com/sakkurthi-sashank/video-PaaS/assets/126908332/37ef7f7f-e3d8-4a43-a1ad-84bb25b78489)
+![aws](https://github.com/sakkurthi-sashank/video-PaaS/assets/126908332/cc991cc5-5376-43a6-b002-cc2f6549800e)
 
 ### Technologies Used
 - React
