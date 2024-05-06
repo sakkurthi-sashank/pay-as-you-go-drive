@@ -42,8 +42,8 @@ export default async function HomePage() {
         {data?.map((video) => (
           <div key={video.id} className="overflow-hidden rounded">
             <ImageAndVideoRenderer
-              src={video.video_url}
-              isVideo={video.video_url.endsWith('.mp4')}
+              src={video.blob_url}
+              isVideo={video.blob_type === 'video'}
             />
           </div>
         ))}

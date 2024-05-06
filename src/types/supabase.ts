@@ -9,24 +9,59 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      blob_cost: {
+        Row: {
+          blob_id: string
+          cost: number
+          created_at: string
+          id: string
+          payment: Database["public"]["Enums"]["payment_status"]
+        }
+        Insert: {
+          blob_id: string
+          cost: number
+          created_at?: string
+          id?: string
+          payment?: Database["public"]["Enums"]["payment_status"]
+        }
+        Update: {
+          blob_id?: string
+          cost?: number
+          created_at?: string
+          id?: string
+          payment?: Database["public"]["Enums"]["payment_status"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "blob_cost_blob_id_fkey"
+            columns: ["blob_id"]
+            isOneToOne: false
+            referencedRelation: "videos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       videos: {
         Row: {
+          blob_type: Database["public"]["Enums"]["blob_type"]
+          blob_url: string
           created_at: string
           id: string
           user_id: string
-          video_url: string
         }
         Insert: {
+          blob_type: Database["public"]["Enums"]["blob_type"]
+          blob_url: string
           created_at?: string
           id?: string
           user_id: string
-          video_url: string
         }
         Update: {
+          blob_type?: Database["public"]["Enums"]["blob_type"]
+          blob_url?: string
           created_at?: string
           id?: string
           user_id?: string
-          video_url?: string
         }
         Relationships: [
           {
@@ -46,7 +81,8 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      [_ in never]: never
+      blob_type: "image" | "video" | "pdf"
+      payment_status: "completed" | "pending"
     }
     CompositeTypes: {
       [_ in never]: never

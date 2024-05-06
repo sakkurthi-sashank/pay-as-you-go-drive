@@ -46,18 +46,37 @@ export default function UploadPage() {
       }
     })
 
-    const { data, error } = await supabase.from('videos').insert({
-      user_id: (await supabase.auth.getUser()).data.user?.id!,
-      video_url: `https://csms-videos.s3.ap-south-1.amazonaws.com/${
-        fileName + file.name
-      }`,
-    })
+    function blobType() {
+      if (fileName.endsWith('.mp4')) {
+        return 'video'
+      } else if (fileName.endsWith('.pdf')) {
+        return 'pdf'
+      }
+      return 'image'
+    }
+
+    const { data, error } = await supabase
+      .from('videos')
+      .insert({
+        user_id: (await supabase.auth.getUser()).data.user?.id!,
+        blob_url: `https://csms-videos.s3.ap-south-1.amazonaws.com/${
+          fileName + file.name
+        }`,
+        blob_type: blobType(),
+      })
+      .select('*')
+      .single()
 
     if (error) {
       console.error('Error inserting video:', error)
     } else {
       console.log('Video inserted successfully:', data)
     }
+
+    await supabase.from('blob_cost').insert({
+      cost: costEstimation(),
+      blob_id: data?.id!,
+    })
 
     setFile(null)
   }
