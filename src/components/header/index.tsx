@@ -13,7 +13,7 @@ export function Header() {
           </Link>
         </div>
 
-        <nav className="hidden w-full items-center justify-center gap-x-10 md:flex">
+        <nav className="hidden w-full items-center justify-center gap-x-10 xl:flex">
           <Link className="text-sm font-medium hover:underline" href="/">
             Home
           </Link>
@@ -23,7 +23,10 @@ export function Header() {
           >
             Upload
           </Link>
-          <Link className="text-sm font-medium hover:underline" href={`/price`}>
+          <Link
+            className="text-sm font-medium hover:underline"
+            href={`/cost-estimation`}
+          >
             Cost Estimation
           </Link>
           <Link className="text-sm font-medium hover:underline" href="/profile">

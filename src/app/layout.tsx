@@ -8,8 +8,8 @@ const fontSans = FontSans({
 })
 
 export const metadata = {
-  title: 'Video Streaming App',
-  description: 'A video streaming app built with Next.js and Supabase.',
+  title: 'Pay as you go storage',
+  description: 'Pay as you go storage',
 }
 
 export default function RootLayout({
