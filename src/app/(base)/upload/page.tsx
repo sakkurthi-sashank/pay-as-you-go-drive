@@ -46,15 +46,6 @@ export default function UploadPage() {
       }
     })
 
-    function blobType() {
-      if (fileName.endsWith('.mp4')) {
-        return 'video'
-      } else if (fileName.endsWith('.pdf')) {
-        return 'pdf'
-      }
-      return 'image'
-    }
-
     const { data, error } = await supabase
       .from('videos')
       .insert({
@@ -62,7 +53,7 @@ export default function UploadPage() {
         blob_url: `https://csms-videos.s3.ap-south-1.amazonaws.com/${
           fileName + file.name
         }`,
-        blob_type: blobType(),
+        blob_type: file.type.split('/')[0] as 'video' | 'image' | 'pdf',
       })
       .select('*')
       .single()
@@ -142,7 +133,7 @@ export default function UploadPage() {
             type="file"
             onChange={handleFileChange}
             className="hidden"
-            accept="video/mp4 image/*"
+            accept="video/mp4,image/*,.pdf"
           />
           <Label
             className="inline-flex cursor-pointer items-center justify-center rounded-md bg-gray-900 px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"

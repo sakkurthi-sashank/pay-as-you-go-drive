@@ -10,7 +10,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import { createClient } from '@/utils/supabase/client'
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export default function PricePage() {
@@ -95,11 +95,11 @@ export default function PricePage() {
               data?.map((d) => d.id),
             )
         }
-        router.reload()
+        router.refresh()
       },
       prefill: {
-        name: 'Gaurav Kumar',
-        email: 'example@gmail.com',
+        name: user?.email?.split('@')[0],
+        email: user?.email,
         contact: '9999999999',
       },
       notes: {
