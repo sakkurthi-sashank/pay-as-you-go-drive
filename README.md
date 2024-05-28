@@ -1,23 +1,36 @@
-## Video PaaS
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-Video PaaS is a scalable and cost-effective platform that replicates the services used by YouTube and Instagram for video conversion from large sizes to storable formats, helping to reduce storage costs.
+## Getting Started
 
-![aws](https://github.com/sakkurthi-sashank/video-PaaS/assets/126908332/cc991cc5-5376-43a6-b002-cc2f6549800e)
+First, run the development server:
 
-### Technologies Used
-- React
-- FastAPI
-- AWS
-  - S3
-  - SNS
-  - Lambda
-  - EC2
-- Docker
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-### Contributing
-We welcome contributions to Video PaaS! If you find any issues or want to add new features, please open an issue or submit a pull request on GitHub.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### License
-This project is licensed under the MIT License, allowing you to use, modify, and distribute the code freely.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Note: The information provided in this README assumes that the file structure and configurations for the project have been appropriately set up. It is essential to keep the README up-to-date with any changes made to the project or its deployment process.
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
